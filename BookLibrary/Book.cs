@@ -19,93 +19,145 @@ namespace BookLibrary
 
         public Book(string author, string title, int year, string publishingHous, int edition, int pages, int price)
         {
-            if (string.IsNullOrWhiteSpace(title))
-            {
-                throw new ArgumentException("title mustn't be empty!");
-            }
-            else
-            {
-                this.title = title;
-            }
-
-            if (string.IsNullOrWhiteSpace(author))
-            {
-                throw new ArgumentException("author mustn't be empty!");
-            }
-            else
-            {
-                this.author = author;
-            }
-
-            if (year < 0 && year >= 2018)
-            {
-                throw new ArgumentException("year must be more than 0 and less than 2018!");
-            }
-            else
-            {
-                this.year = year;
-            }
-
-            if (string.IsNullOrWhiteSpace(publishingHous))
-            {
-                throw new ArgumentException("publishingHous mustn't be empty!");
-            }
-            else
-            {
-                this.publishingHous = publishingHous;
-            }
-
-            if (edition < 0)
-            {
-                throw new ArgumentException("edition must be more than 0!");
-            }
-            else
-            {
-                this.edition = edition;
-            }
-
-            if (pages < 0)
-            {
-                throw new ArgumentException("pages must be more than 0!");
-            }
-            else
-            {
-                this.pages = pages;
-            }
-
-            if (price < 0)
-            {
-                throw new ArgumentException("price must be more than 0!");
-            }
-            else
-            {
-                this.price = price;
-            }
-        }
-
-        public string AuthorTitleYearPublishingHous
-        {
-            get { return author + " " + title + " " + year.ToString() + " " + publishingHous; }
-        }
-
-        public string AuthorTitleYear
-        {
-            get { return author + " " + title + " " + year.ToString(); }
-        }
-
-        public string AuthorTitle
-        {
-            get { return author + " " + title; }
-        }
-
-        public string TitleYearPublishingHous
-        {
-            get { return title + " " + year.ToString() + " " + publishingHous; }
+            this.title = title;
+            this.author = author;
+            this.year = year;
+            this.publishingHous = publishingHous;
+            this.edition = edition;
+            this.pages = pages;
+            this.price = price;
         }
 
         public string Title
         {
             get { return title; }
+            private set
+            {
+                if (string.IsNullOrWhiteSpace(title))
+                {
+                    throw new ArgumentException("title mustn't be empty!");
+                }
+                else
+                {
+                    title = value;
+                }
+            }
+        }
+
+        public string Author
+        {
+            get { return author; }
+            private set
+            {
+                if (string.IsNullOrWhiteSpace(author))
+                {
+                    throw new ArgumentException("author mustn't be empty!");
+                }
+                else
+                {
+                    author = value;
+                }
+            }
+        }
+
+        public int Year
+        {
+            get { return year; }
+            private set
+            {
+                if (year < 0 && year >= 2018)
+                {
+                    throw new ArgumentException("year must be more than 0 and less than 2018!");
+                }
+                else
+                {
+                    year = value;
+                }
+            }
+        }
+
+        public string PublishingHous
+        {
+            get { return publishingHous; }
+            private set
+            {
+                if (string.IsNullOrWhiteSpace(publishingHous))
+                {
+                    throw new ArgumentException("publishingHous mustn't be empty!");
+                }
+                else
+                {
+                    publishingHous = value;
+                }
+            }
+        }
+
+        public int Edition
+        {
+            get { return edition; }
+            private set
+            {
+                if (edition < 0)
+                {
+                    throw new ArgumentException("edition must be more than 0!");
+                }
+                else
+                {
+                    edition = value;
+                }
+            }
+        }
+
+        public int Pages
+        {
+            get { return pages; }
+            private set
+            {
+                if (pages < 0)
+                {
+                    throw new ArgumentException("pages must be more than 0!");
+                }
+                else
+                {
+                    pages = value;
+                }
+            }
+        }
+
+        public int Price
+        {
+            get { return price; }
+            private set
+            {
+                if (price < 0)
+                {
+                    throw new ArgumentException("price must be more than 0!");
+                }
+                else
+                {
+                    price = value;
+                }
+            }
+        }
+
+        private string AuthorTitleYearPublishingHous
+        {
+            get { return author + " " + title + " " + year.ToString() + " " + publishingHous; }
+        }
+
+        private string AuthorTitleYear
+        {
+            get { return author + " " + title + " " + year.ToString(); }
+        }
+
+        private string AuthorTitle
+        {
+            get { return author + " " + title; }
+        }
+
+        private string TitleYearPublishingHous
+        {
+            get { return title + " " + year.ToString() + " " + publishingHous; }
         }
 
         public override string ToString()
