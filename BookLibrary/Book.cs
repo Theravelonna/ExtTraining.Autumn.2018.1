@@ -142,22 +142,25 @@ namespace BookLibrary
 
         private string AuthorTitleYearPublishingHous
         {
-            get { return author + " " + title + " " + year.ToString() + " " + publishingHous; }
+            get
+            {
+                return string.Format("{0} {1} {2} {3}", author, title, year.ToString(), publishingHous);
+            }
         }
 
         private string AuthorTitleYear
         {
-            get { return author + " " + title + " " + year.ToString(); }
+            get { return string.Format("{0} {1} {2}", author, title, year.ToString()); }
         }
 
         private string AuthorTitle
         {
-            get { return author + " " + title; }
+            get { return string.Format("{0} {1}", author, title); }
         }
 
         private string TitleYearPublishingHous
         {
-            get { return title + " " + year.ToString() + " " + publishingHous; }
+            get { return string.Format("{0} {1} {2}", title, year.ToString(), publishingHous); }
         }
 
         public override string ToString()
@@ -192,7 +195,7 @@ namespace BookLibrary
                 case "E":
                     return this.Title.ToString(formatProvider);
                 default:
-                    throw new FormatException(String.Format("The '{0}' format string is not supported.", format));
+                    throw new FormatException(string.Format("The '{0}' format string is not supported.", format));
             }
         }
     }

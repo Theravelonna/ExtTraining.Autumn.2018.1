@@ -24,9 +24,9 @@ namespace StringExtension
             {
                 for(int k = 0; k < arrayForBase.Length; k++)
                 {
-                    if (arraySource[j] == arrayForBase[j])
+                    if (arraySource[j] == arrayForBase[k])
                     {
-                        arrayForNumbers[i++] = j;
+                        arrayForNumbers[i++] = k;
                     }
                 }
             }
@@ -53,6 +53,7 @@ namespace StringExtension
             }
 
             int elementIndex = 0;
+            source = source.ToUpper();
             for (int i = 0; i < source.Length; i++)
             {
                 bool isSymbol = false;
@@ -67,7 +68,7 @@ namespace StringExtension
                     }
                 }
 
-                if (elementIndex > @base)
+                if (elementIndex >= @base)
                 {
                     isSymbol = false;
                 }
