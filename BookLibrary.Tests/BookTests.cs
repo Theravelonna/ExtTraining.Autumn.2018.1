@@ -13,7 +13,7 @@ namespace BookLibrary.Tests
             CultureInfo nl = CultureInfo.CurrentCulture;
             Book book = new Book("Jon Skeet", "C# in Depth", 2019, "Manning", 4, 900, 40);
             string title = book.ToString("G", nl);
-            string result = string.Format("{0} {1} {2} {3}", book.Author, book.Title, book.Year.ToString(), book.PublishingHous);
+            string result = $"{book.Author} {book.Title} {book.Year.ToString()} {book.PublishingHous}";
             Assert.AreEqual(result, title);
         }
 
@@ -23,7 +23,7 @@ namespace BookLibrary.Tests
             CultureInfo nl = CultureInfo.CurrentCulture;
             Book book = new Book("Jon Skeet", "C# in Depth", 2019, "Manning", 4, 900, 40);
             string title = book.ToString("B", nl);
-            string result = string.Format("{0} {1} {2}", book.Author, book.Title, book.Year.ToString());
+            string result = $"{book.Author} {book.Title} {book.Year.ToString()}";
             Assert.AreEqual(result, title);
         }
 
@@ -33,7 +33,7 @@ namespace BookLibrary.Tests
             CultureInfo nl = CultureInfo.CurrentCulture;
             Book book = new Book("Jon Skeet", "C# in Depth", 2019, "Manning", 4, 900, 40);
             string title = book.ToString("C", nl);
-            string result = string.Format("{0} {1}", book.Author, book.Title);
+            string result = $"{book.Author} {book.Title}";
             Assert.AreEqual(result, title);
         }
 
@@ -43,7 +43,7 @@ namespace BookLibrary.Tests
             CultureInfo nl = CultureInfo.CurrentCulture;
             Book book = new Book("Jon Skeet", "C# in Depth", 2019, "Manning", 4, 900, 40);
             string title = book.ToString("D", nl);
-            string result = string.Format("{0} {1} {2}", book.Title, book.Year.ToString(), book.PublishingHous);
+            string result = $"{book.Title} {book.Year.ToString()} {book.PublishingHous}";
             Assert.AreEqual(result, title);
         }
 

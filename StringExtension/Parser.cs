@@ -33,10 +33,21 @@ namespace StringExtension
 
             int count = 0;
             int pow = arraySource.Length - 1;
-            while (count < arraySource.Length)
+            try
             {
-                number += (int)Math.Pow(@base, pow--) * arrayForNumbers[count++];
+                while (count < arraySource.Length)
+                {
+                    checked
+                    {
+                        number += (int)Math.Pow(@base, pow--) * arrayForNumbers[count++];
+                    }
+                }
             }
+            catch (OverflowException)
+            {
+                throw new ArgumentException();
+            }
+
             return number;
         }
 
@@ -78,7 +89,6 @@ namespace StringExtension
                     throw new ArgumentException("Source string isn't correct!");
                 }
             }
-            //Проверка на слишком большое число?
         }
     }
 }

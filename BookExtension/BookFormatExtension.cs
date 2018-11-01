@@ -29,9 +29,9 @@ namespace BookExtension
             switch (format)
             {
                 case "A":
-                    return book.Author + " " + book.Title + " " + book.Year.ToString() + " " + book.PublishingHous + " " + book.Edition.ToString() + " " + book.Pages.ToString() + " " + book.Price.ToString();
+                    return $"{book.Author} {book.Title} {book.Year.ToString()} {book.PublishingHous} {book.Edition.ToString()} {book.Pages.ToString()} {book.Price.ToString("C", this.parent)}";
                 case "F":
-                    return book.Author + " " + book.Title + " " + book.Price.ToString();
+                    return $"{book.Author} {book.Title} {book.Price.ToString("C", this.parent)}";
                 default:
                     try
                     {
