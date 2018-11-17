@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BookLibrary
 {
-    public class Book : IFormattable
+    public class Book : IFormattable, IComparable, IComparable<Book>
     {
         private string title;
         private string author;
@@ -161,6 +161,39 @@ namespace BookLibrary
         private string TitleYearPublishingHous
         {
             get { return $"{title} {year.ToString()} {publishingHous}"; }
+        }
+
+        public int CompareTo(object obj)
+        {
+            Book book = (Book)obj;
+            return this.CompareTo(book);
+        }
+
+        public int CompareTo(Book book)
+        {
+            if (this == null)
+            {
+                if (book == null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+
+            if (book == null)
+            {
+                return 1;
+            }
+
+            if (this.Author == book.Author && this.Edition == book.Edition && this.Pages == book.Pages && this.Price == book.Price && this.Title == book.Title && this.Year == book.Year)
+            {
+                return 0;
+            }
+
+            return this.Price - book.Price;
         }
 
         public override string ToString()
